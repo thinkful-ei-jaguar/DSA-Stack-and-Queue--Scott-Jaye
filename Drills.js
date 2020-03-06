@@ -109,13 +109,214 @@ function matching(string) {
 
 //console.log(matching('(((('))
 
-[1,2,3,4,5,1,2,3]
+function sort() {
+  let stackA = new Stack()
+  stackA.push(2)
+  stackA.push(5)
+  stackA.push(6)
+  stackA.push(3)
 
-1     
-1    
-2    1
-2    5
-3    4
-3    3
-4    2    2
-5    1    3    
+  let stackB = new Stack()
+  let temp;
+  //let temp = stackA.pop()
+  while(!isEmpty(stackA)) {
+
+    // if(temp < stackA.peek()) {
+    //   stackB.push(temp)
+    //   temp = stackA.pop()
+    // }
+    // if(temp > stackA.peek()) {
+    //   if(stackA.peek() > stackB.peek()) {
+    //     stackB.push(stackA.pop())
+    //   }
+    //   //swap temp and a
+    // }
+  }
+  stackB.push(temp)
+}
+
+class _NodeQ {
+  constructor(value) {
+      this.value = value;
+      this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+      this.first = null;
+      this.last = null;
+  }
+  enQ(data) {
+    const node = new _NodeQ(data);
+
+    if (this.first === null) {
+        this.first = node;
+    }
+
+    if (this.last) {
+        this.last.next = node;
+    }
+    //make the new node the last item on the queue
+    this.last = node;
+  }
+  deQ() {
+    //if the queue is empty, there is nothing to return
+   if (this.first === null) {
+       return;
+   }
+   const node = this.first;
+   this.first = this.first.next;
+    //if this is the last item in the queue
+   if (node === this.last) {
+       this.last = null;
+   }
+   return node.value;
+  }
+}
+
+function peekQ(queue) {
+  return queue.first.value
+}
+
+function isEmptyQ(queue) {
+  return queue.first === null ? true : false
+}
+
+function displayQ(queue) {
+  let tempNode = queue.first;
+
+  while(tempNode !== null) {
+    console.log(tempNode);
+    tempNode = tempNode.next;
+  }
+}
+
+function mainQ() {
+  let starQ = new Queue()
+  let emptyQ = new Queue()
+  starQ.enQ('Kirk')
+  starQ.enQ('Spock')
+  starQ.enQ('Uhura')
+
+  console.log(peekQ(starQ))
+  console.log(isEmptyQ(starQ))
+  console.log(isEmptyQ(emptyQ))
+  starQ.deQ()
+  starQ.deQ()
+  displayQ(starQ)
+  
+}
+
+//mainQ()
+
+class _NodeQ2 {
+  constructor(value) {
+      this.value = value;
+      this.next = null;
+      this.previous = null;
+  }
+}
+
+class Queue2 {
+  constructor() {
+      this.first = null;
+      this.last = null;
+  }
+  enQ(data) {
+    const node = new _NodeQ2(data);
+
+    if (this.first === null) {
+        this.first = node;
+    }
+
+    if (this.last) {
+        this.last.next = node;
+        node.previous = this.last
+    }
+    //make the new node the last item on the queue
+    this.last = node;
+  }
+  deQ() {
+    //if the queue is empty, there is nothing to return
+   if (this.first === null) {
+       return;
+   }
+   const node = this.first;
+   this.first = this.first.next;
+   this.first.previous = null;
+    //if this is the last item in the queue
+   if (node === this.last) {
+       this.last = null;
+   }
+   return node.value;
+  }
+}
+
+function mainQ2 () {
+  let starQ = new Queue2()
+  let emptyQ = new Queue2()
+  starQ.enQ('Kirk')
+  starQ.enQ('Spock')
+  starQ.enQ('Uhura')
+  //displayQ(starQ)
+  // console.log(peekQ(starQ))
+  // console.log(isEmptyQ(starQ))
+  // console.log(isEmptyQ(emptyQ))
+  starQ.deQ()
+
+  displayQ(starQ)
+  
+}
+//mainQ2()
+
+class QueueStack {
+  constructor() {
+      this.first = null;
+      this.last = null;
+  }
+  enQ(data) {
+    const node = new _NodeQ(data);
+
+    if (this.first === null) {
+        this.first = node;
+    }
+
+    if (this.last) {
+        this.last.next = node;
+    }
+    //make the new node the last item on the queue
+    this.last = node;
+  }
+  deQ() {
+    if (this.first === null) {
+      return;
+  }
+    let stackB = new Stack()
+
+  //  const node = this.first;
+  //  this.first = this.first.next;
+  //   //if this is the last item in the queue
+  //  if (node === this.last) {
+  //      this.last = null;
+  //  }
+  //  return node.value;
+  }
+}
+
+
+queue
+queue.enq(false)
+queue.enq(true)
+queue.enq(true)
+queue.enq(true)
+
+
+
+
+ 2 3 1
+ while queue
+ if queue.peek.value = true
+  queue.deq
+  
+queue.enq(queue.deq)
