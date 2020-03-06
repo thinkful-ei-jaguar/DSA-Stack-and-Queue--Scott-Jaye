@@ -60,4 +60,62 @@ function main() {
   display(starTrek);
 }
 
-main();
+//main();
+
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  let strSplit = s.split("")
+  let ssstack = new Stack()
+  for(let i = 0; i < strSplit.length; i++) {
+    ssstack.push(strSplit[i])
+  }
+  for(let i = 0; i < strSplit.length; i++) {
+    if(ssstack.pop() !== strSplit[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+// console.log(is_palindrome("dad"));
+// console.log(is_palindrome("A man, a plan, a canal: Panama"));
+// console.log(is_palindrome("1001"));
+// console.log(is_palindrome("Tauhida"));
+
+function matching(string) {
+  let ssstack = new Stack()
+  let count = 0;
+  let strSplit = string.split("")
+  let error = '';
+  for(let i = 0; i < strSplit.length; i++) {
+    ssstack.push(strSplit[i])
+  }
+  for(let i = 0; i < strSplit.length; i++) {
+    if(ssstack.pop() === ')') {
+      count++
+    }
+    else {
+      count--
+    }
+  }
+  if(count < 0){
+    error = ' ya got too many ( '
+  }
+  if(count > 0){
+    error = ' ya got too many ) '
+  }
+  return count !== 0 ? error : true
+}
+
+//console.log(matching('(((('))
+
+[1,2,3,4,5,1,2,3]
+
+1     
+1    
+2    1
+2    5
+3    4
+3    3
+4    2    2
+5    1    3    
